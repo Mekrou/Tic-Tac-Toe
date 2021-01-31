@@ -50,7 +50,6 @@ namespace Tic_Tac_Toe
                     
                     
                     gameOver = true; // will be replaced by GetWinCondition() method
-                    break;
                     // Place 'X' There
                     // Move turn to 'O'
                     // this.currentPlayerState = PlayerState.O;
