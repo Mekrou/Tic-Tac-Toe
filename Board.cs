@@ -64,7 +64,7 @@ namespace Tic_Tac_Toe
         /// <param name="state">What state to change the tile to.</param>
         /// <param name="row">What row the tile is in.</param>
         /// <param name="collum">What collum the tile is in.</param>
-        public void UpdateBoard(State state, int row, int collum)
+        public void UpdateBoard(PlayerState state, int row, int collum)
         {
             // subtracting one to account for zero indexing.
             board[row - 1, collum - 1] = (int) state;
@@ -96,10 +96,10 @@ namespace Tic_Tac_Toe
                     // This code will print what is needed for each collum.
                     if (collum == 0) // we want to put spaces so the board is in the middle of the console.
                     {
-                        Console.Write("               | {0} |", (char) board[row, collum]);
+                        Console.Write("               | {0} |", (char)board[row, collum]);
                         continue;
                     }
-                    Console.Write("| {0} |", (char) board[row, collum]);
+                    Console.Write("| {0} |", (char)board[row, collum]);
                 }
                 Console.WriteLine();
             }

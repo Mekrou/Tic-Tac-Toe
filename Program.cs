@@ -4,6 +4,20 @@ namespace Tic_Tac_Toe
 {
     class Program
     {
+        private Board coreBoard = new Board();
+
+        public Board CoreBoard
+        {
+            get
+            {
+                return coreBoard;
+            }
+            set
+            {
+                coreBoard = value;
+            }
+        }
+
         static void Main(string[] args)
         {
             bool isPlaying = PrintWelcome();
@@ -12,10 +26,13 @@ namespace Tic_Tac_Toe
             {
                 PlayerHandler player = new PlayerHandler(); // Handles states of game
                 ConsoleKey playerInput;
-                Board board = new Board();
+
+                Program program = new Program();
+                Board coreBoard = program.CoreBoard;
+                
                 bool debounce = false;
 
-                board.PrintBoard();
+                coreBoard.PrintBoard();
                 Console.WriteLine("Player one, press either X or O to choose your team.");
 
                 while (debounce == false)
