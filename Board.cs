@@ -2,35 +2,62 @@ using System;
 
 namespace Tic_Tac_Toe
 {
+    enum State
+    {
+        X = 88,
+        O = 79,
+        Undecided = 45
+    }
+
     class Board
     {
-        private int[,] board = new int[3, 3];
+        private int[,] board;
+        private int numRows;
+        private int numCollums;
+
+        
+        public Board()
+        {
+            this.board = new int[3, 3];
+        }
+        public Board(int numRows, int numCollums)
+        {
+            this.board = new int[numRows, numCollums];
+            this.numRows = numRows;
+            this.numCollums = numCollums;
+        }
+
         public void PrintBoard()
         {
             PrintLine();
+            // This code will run for every row.
             for (int row = 0; row < board.GetLength(0); row++)
             {
-                Console.WriteLine("| {0} | {1} | {2} |", (char) board[row, 0], (char) board[row, 1], (char) board[row, 2]);
+                for (int collum = 0; collum < board.GetLength(1); collum++)
+                {
+                    // This code will print what is needed for each collum.
+                    Console.Write("| {0} |", (char) board[row, collum]);
+                }
+                Console.WriteLine();
             }
             PrintLine();
-        }
-
-        public void SetBoard(int newValue, int row, int collum)
-        {
-            if (newValue == 0)
-            {
-
-            } else if (newValue == 1)
-            {
-                
-            }
-            // accounting for zero-indexing
-            board[row - 1, collum - 1] = newValue;
         }
 
         private void PrintLine()
         {
-            Console.WriteLine("-------------");
+            Console.WriteLine("---------------");
+        }
+
+        public void InitializeBoard()
+        {
+            for (int row = 0; row < board.GetLength(0); row++)
+            {
+                for (int collum = 0; collum < board.GetLength(1); collum++)
+                {
+                    // This code will print what is needed for each collum.
+                    board[row, collum] = (int) State.Undecided;
+                }
+            }
         }
     }
 }
