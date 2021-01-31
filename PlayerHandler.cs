@@ -29,10 +29,10 @@ namespace Tic_Tac_Toe
         }
 
 
-        public void PlayerMove()
+        public void PlayerMove(Board coreBoard)
         {
-            Program program = new Program();
-            Board coreBoard = program.CoreBoard;
+            Board board;
+            board = coreBoard;
 
             Console.WriteLine(currentPlayerState);
             do
@@ -41,28 +41,26 @@ namespace Tic_Tac_Toe
                 {
                     // Get player's desired tile
                     Console.Clear();
-                    coreBoard.PrintControlBoard();
+                    board.PrintControlBoard();
                     Console.WriteLine("Where would you like to place your 'X'?");
                     ConsoleKey playerInput = GetPlayerInput();
-                    ResolvePlayerInput(playerInput, PlayerState.X);
+                    ResolvePlayerInput(playerInput, board, PlayerState.X);
 
                     
                     
                     
-                    gameOver = true; // will be replaced by GetWinCondition() method
-                    // Place 'X' There
-                    // Move turn to 'O'
-                    // this.currentPlayerState = PlayerState.O;
+
+                    this.currentPlayerState = PlayerState.O;
                 } else if (currentPlayerState.Equals(PlayerState.O))
                 {
                     Console.Clear();
-                    coreBoard.PrintControlBoard();
+                    board.PrintControlBoard();
                     Console.WriteLine("Where would you like to place your 'O'?");
                     ConsoleKey playerInput = GetPlayerInput();
-                    ResolvePlayerInput(playerInput, PlayerState.O);
+                    ResolvePlayerInput(playerInput, board, PlayerState.O);
 
-                    gameOver = true;
-                    // this.currentPlayerState = PlayerState.X;
+                    
+                    this.currentPlayerState = PlayerState.X;
                 }
             } while (!gameOver);
         }
@@ -92,10 +90,10 @@ namespace Tic_Tac_Toe
             return playerInput;
         }
 
-        public void ResolvePlayerInput(ConsoleKey playerInput, PlayerState sender)
+        public void ResolvePlayerInput(ConsoleKey playerInput, Board coreBoard, PlayerState sender)
         {
-            Program program = new Program();
-            Board coreBoard = program.CoreBoard;
+            Board board;
+            board = coreBoard;
 
             switch (playerInput)
             {

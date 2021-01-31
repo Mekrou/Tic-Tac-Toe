@@ -4,20 +4,6 @@ namespace Tic_Tac_Toe
 {
     class Program
     {
-        private Board coreBoard = new Board();
-
-        public Board CoreBoard
-        {
-            get
-            {
-                return coreBoard;
-            }
-            set
-            {
-                coreBoard = value;
-            }
-        }
-
         static void Main(string[] args)
         {
             bool isPlaying = PrintWelcome();
@@ -26,9 +12,8 @@ namespace Tic_Tac_Toe
             {
                 PlayerHandler player = new PlayerHandler(); // Handles states of game
                 ConsoleKey playerInput;
-
-                Program program = new Program();
-                Board coreBoard = program.CoreBoard;
+                Board coreBoard = new Board();
+                
                 
                 bool debounce = false;
 
@@ -54,8 +39,7 @@ namespace Tic_Tac_Toe
                             break;
                     }
                 }
-
-                player.PlayerMove();
+                player.PlayerMove(coreBoard);
             } 
             else
             {
