@@ -6,26 +6,44 @@ namespace Tic_Tac_Toe
     {
         static void Main(string[] args)
         {
-            // PlayerHandler players = new PlayerHandler();
+            bool isPlaying = PrintWelcome();
 
-            // board.Update(State.X, 2, 2);
-            // board.Update(State.X, 1, 3);
-            // board.Update(State.X, 3, 1);
-
-            // board.PrintBoard();
-
+            if (isPlaying == true)
+            {
+                // print board, start game
+            } else
+                return;
         }
 
-        private static void PrintWelcome()
+        private static bool PrintWelcome()
         {
+            ConsoleKey consoleInput;
             Board board = new Board();
+
+
             Console.WriteLine();
             Console.WriteLine("        <------- Welcome to Tic-Tac-Toe ------->");
             Console.WriteLine("Players will take turns using keys that represents the board.");
             Console.WriteLine();
             board.PrintDefaultBoard();
             Console.WriteLine();
-            Console.Write("Press <enter> if you are ready to start the game.");
+            Console.Write("Press <enter> if you are ready to start the game. <esc> to quit.");
+            Console.WriteLine();
+
+            do
+            {
+                consoleInput = Console.ReadKey().Key;
+                if (consoleInput.Equals(ConsoleKey.Enter))
+                {
+                    Console.Clear();
+                    return true;
+                }
+            } while (!(consoleInput.Equals(ConsoleKey.Escape)));
+            
+            Console.Clear();
+            Console.WriteLine("_Bye!"); // The console will replace first letter with player's key
+                                        // so I put an underscore .-.
+            return false;
         }
     }
 }
