@@ -23,7 +23,6 @@ namespace Tic_Tac_Toe
     {
         private PlayerState currentPlayerState;
 
-
         public  PlayerState CurrentPlayerState
         {
             get
@@ -36,7 +35,6 @@ namespace Tic_Tac_Toe
             }
         }
 
-
         public void PlayerMove()
         {
             int playerInput = Convert.ToInt32(Console.ReadLine());
@@ -46,7 +44,5 @@ namespace Tic_Tac_Toe
         {
             Console.WriteLine();
         }
-
-
     }
 }

@@ -10,8 +10,6 @@ namespace Tic_Tac_Toe
         Undecided = 45 // this one is '-', simulating empty.
     }
 
-    
-
     class Board
     {
         private int[,] board;
@@ -36,7 +34,7 @@ namespace Tic_Tac_Toe
                 for (int collum = 0; collum < board.GetLength(1); collum++)
                 {
                     // This code will print what is needed for each collum.
-                    if (collum == 0)
+                    if (collum == 0) // we want to put spaces so the board is in the middle of the console.
                     {
                         Console.Write("        | {0} |", (char) board[row, collum]);
                         continue;
@@ -44,13 +42,14 @@ namespace Tic_Tac_Toe
                     Console.Write("| {0} |", (char) board[row, collum]);
                 }
 
+                // This code only runs for each row.
                 switch (row)
                 {
                     case 0:
                         Console.WriteLine("        | Q | W | E |");
                         break;
                     case 1:
-                        Console.WriteLine("  --->  | A | S | E |");
+                        Console.WriteLine("  --->  | A | S | E |"); // Looking at the console output will better explain this.
                         break;
                     case 2:
                         Console.WriteLine("        | Z | X | C |");
@@ -58,7 +57,6 @@ namespace Tic_Tac_Toe
                 }
             }
         }
-
 
         /// <summary>
         /// Changes a tile on the board depending upon what is passed into it.

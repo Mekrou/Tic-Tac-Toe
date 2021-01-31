@@ -20,7 +20,6 @@ namespace Tic_Tac_Toe
             ConsoleKey consoleInput;
             Board board = new Board();
 
-
             Console.WriteLine();
             Console.WriteLine("        <------- Welcome to Tic-Tac-Toe ------->");
             Console.WriteLine("Players will take turns using keys that represents the board.");
