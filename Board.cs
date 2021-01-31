@@ -4,9 +4,10 @@ namespace Tic_Tac_Toe
 {
     enum State
     {
+        // integer values = ACSII values of given char
         X = 88,
         O = 79,
-        Undecided = 45
+        Undecided = 45 // this one is '-', simulating empty.
     }
 
     class Board
@@ -15,11 +16,6 @@ namespace Tic_Tac_Toe
         private int numRows;
         private int numCollums;
 
-        
-        public Board()
-        {
-            this.board = new int[3, 3];
-        }
         public Board(int numRows, int numCollums)
         {
             this.board = new int[numRows, numCollums];
@@ -27,6 +23,10 @@ namespace Tic_Tac_Toe
             this.numCollums = numCollums;
         }
 
+        /// <summary>
+        /// Loops through the entire multi-dimensional board array an prints the character associated
+        /// with that element value. (X = 88, O = 79, '-' = 45)
+        /// </summary>
         public void PrintBoard()
         {
             PrintLine();
@@ -48,16 +48,16 @@ namespace Tic_Tac_Toe
             Console.WriteLine("---------------");
         }
 
-        public void InitializeBoard()
+        /// <summary>
+        /// Changes a tile on the board depending upon what is passed into it.
+        /// </summary>
+        /// <param name="state">What state to change the tile to.</param>
+        /// <param name="row">What row the tile is in.</param>
+        /// <param name="collum">What collum the tile is in.</param>
+        public void Update(State state, int row, int collum)
         {
-            for (int row = 0; row < board.GetLength(0); row++)
-            {
-                for (int collum = 0; collum < board.GetLength(1); collum++)
-                {
-                    // This code will print what is needed for each collum.
-                    board[row, collum] = (int) State.Undecided;
-                }
-            }
+            // subtracting one to account for zero indexing.
+            board[row - 1, collum - 1] = (int) state;
         }
     }
 }
