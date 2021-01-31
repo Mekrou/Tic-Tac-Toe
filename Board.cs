@@ -26,7 +26,7 @@ namespace Tic_Tac_Toe
         /// <summary>
         /// Prints a Custom Board to display controls
         /// </summary>
-        public void PrintDefaultBoard()
+        public void PrintControlBoard()
         {
             // This code will run for every row.
             for (int row = 0; row < board.GetLength(0); row++)
@@ -84,6 +84,26 @@ namespace Tic_Tac_Toe
                     board[row, collum] = (int) state;
                 }
             }
+        }
+
+        public void PrintBoard()
+        {
+            // This code will run for every row.
+            for (int row = 0; row < board.GetLength(0); row++)
+            {
+                for (int collum = 0; collum < board.GetLength(1); collum++)
+                {
+                    // This code will print what is needed for each collum.
+                    if (collum == 0) // we want to put spaces so the board is in the middle of the console.
+                    {
+                        Console.Write("               | {0} |", (char) board[row, collum]);
+                        continue;
+                    }
+                    Console.Write("| {0} |", (char) board[row, collum]);
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
         }
     }
 }

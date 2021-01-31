@@ -5,23 +5,20 @@ namespace Tic_Tac_Toe
     enum PlayerState
     {
         X,
-        Y,
-        Unassigned
+        O
     }
-    enum PlayerMove
-    {
-        Q = 0, W = 1, E = 3,
-        A = 4, S = 5, D = 6,
-        Z = 7, X = 8, C = 9, 
 
-        T = 10, Y = 11, U = 12,
-        G = 13, H = 14, J = 15,
-        B = 16, N = 17, M = 19
+    enum PlayerKey
+    {
+        Q = 1, W = 2, E = 3,
+        A = 4, S = 5, D = 6,
+        Z = 7, X = 8, C = 9
     }
 
     class PlayerHandler
-    {
+    {   
         private PlayerState currentPlayerState;
+        private PlayerKey currentPlayerKey;
 
         public  PlayerState CurrentPlayerState
         {
@@ -35,14 +32,21 @@ namespace Tic_Tac_Toe
             }
         }
 
-        public void PlayerMove()
+        public PlayerKey CurrentPlayerKey
         {
-            int playerInput = Convert.ToInt32(Console.ReadLine());
+            get
+            {
+                return currentPlayerKey;
+            }
+            set
+            {
+                currentPlayerKey = value;
+            }
         }
 
-        public void AssignState()
+        public void PlayerMove()
         {
-            Console.WriteLine();
+            Console.WriteLine("Entered PlayerMove()");
         }
     }
 }
