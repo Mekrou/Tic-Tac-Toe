@@ -1,1 +1,1 @@
-Switch enum state.
+Fixed "bye" on program exit
