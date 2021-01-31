@@ -15,14 +15,13 @@ namespace Tic_Tac_Toe
     class Board
     {
         private int[,] board;
-        private int numRows;
-        private int numCollums;
 
-        public Board(int numRows, int numCollums)
+        /// <summary>
+        /// Creates a board filled with defaulted '-' tiles.
+        /// </summary>
+        public Board()
         {
-            this.board = new int[numRows, numCollums];
-            this.numRows = numRows;
-            this.numCollums = numCollums;
+            this.board = new int[3, 3];
             UpdateBoard(State.Undecided);
         }
 
@@ -73,6 +72,10 @@ namespace Tic_Tac_Toe
             board[row - 1, collum - 1] = (int) state;
         }
 
+        /// <summary>
+        /// A method to alter every tile on the board.
+        /// </summary>
+        /// <param name="state">What State to change every tile to.</param>
         public void UpdateBoard(State state)
         {
             for (int row = 0; row < board.GetLength(0); row++)

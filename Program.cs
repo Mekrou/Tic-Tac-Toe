@@ -8,11 +8,6 @@ namespace Tic_Tac_Toe
         {
             // PlayerHandler players = new PlayerHandler();
 
-            
-             Board board = new Board(3, 3);
-
-            PrintWelcome(board);
-
             // board.Update(State.X, 2, 2);
             // board.Update(State.X, 1, 3);
             // board.Update(State.X, 3, 1);
@@ -21,8 +16,9 @@ namespace Tic_Tac_Toe
 
         }
 
-        private static void PrintWelcome(Board board)
+        private static void PrintWelcome()
         {
+            Board board = new Board();
             Console.WriteLine();
             Console.WriteLine("        <------- Welcome to Tic-Tac-Toe ------->");
             Console.WriteLine("Players will take turns using keys that represents the board.");
