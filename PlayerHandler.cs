@@ -16,6 +16,7 @@ namespace Tic_Tac_Toe
                                                                     ConsoleKey.Z, ConsoleKey.C, ConsoleKey.X, 
                                                                     ConsoleKey.O, ConsoleKey.Escape, ConsoleKey.Enter};
         private bool gameOver = false;
+
         public  PlayerState CurrentPlayerState
         {
             get
@@ -45,10 +46,15 @@ namespace Tic_Tac_Toe
                     Console.WriteLine("Where would you like to place your 'X'?");
                     ConsoleKey playerInput = GetPlayerInput();
                     ResolvePlayerInput(playerInput, board, PlayerState.X);
+                    
+                    int[] secondCollum = board.getCollum(2);
+                    foreach(int element in secondCollum)
+                    {
+                        Console.WriteLine(element);
+                    }
 
-                    
-                    
-                    
+                    Console.ReadLine();
+
 
                     this.currentPlayerState = PlayerState.O;
                 } else if (currentPlayerState.Equals(PlayerState.O))
@@ -59,7 +65,15 @@ namespace Tic_Tac_Toe
                     ConsoleKey playerInput = GetPlayerInput();
                     ResolvePlayerInput(playerInput, board, PlayerState.O);
 
+                    int[] secondCollum = board.getCollum(2);
+                    foreach(int element in secondCollum)
+                    {
+                        Console.WriteLine(element);
+                    }
+
+                    Console.ReadLine();
                     
+
                     this.currentPlayerState = PlayerState.X;
                 }
             } while (!gameOver);
